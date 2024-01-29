@@ -6,15 +6,19 @@ const remainMilli = document.querySelector("#remain-millisecond");
 const healthBar = document.querySelector("#healthbarbg");
 const manaBar = document.querySelector("#manabar");
 const timertext = document.querySelector("#timer");
-dday = new Date("2023-07-11 14:00");
 const liveimg = document.querySelector("#liveimg");
 const deadimg = document.querySelector("#deadimg");
 isdead = false;
 
+deadDay = new Date("2024-02-01 14:00");
+reviveDay = new Date("2024-02-25 00:00");
+const startday = new Date("2024-01-29 15:00");
+
+
 function diffDay(){
     const today = new Date();
+    const diff = isdead ? reviveDay - today : deadDay - today;
     
-    const diff = dday - today;
 
     const diffday = Math.floor(diff / (1000 * 60 * 60 * 24));
     const diffhour = Math.floor((diff / (1000 * 60 * 60)));
@@ -28,11 +32,9 @@ function diffDay(){
 
 
 function calculateHealth(){
-    const startday = new Date("2023-07-05 00:00");
     const today = new Date();
-    const health = dday - today;
+    const health = deadDay - today;
     if(health < 0 && isdead == false){
-        dday = new Date("2024-10-11 00:00");
         liveimg.style.display = "none";
         deadimg.style.display = "block";
         healthBar.style.display = "none";
@@ -50,10 +52,10 @@ function calculateHealth(){
 }
 
 function timerlive(){
-    const startday = new Date("2023-07-05 00:00");
+
     const today = new Date();
-    const maxhealth = dday - startday;
-    const health = dday - today;
+    const maxhealth = deadDay - startday;
+    const health = deadDay - today;
     const healthpercent = Math.floor((health / maxhealth) * 100);
     
     healthBar.style.width = `${healthpercent}%`;
@@ -61,7 +63,7 @@ function timerlive(){
 function timerdead(){
     const today = new Date();
     
-    const diff = dday - today;
+    const diff = reviveDay - today;
 
     const diffsec = Math.floor((diff / 1000));
 
