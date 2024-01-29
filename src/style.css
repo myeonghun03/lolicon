@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&display=swap');
+
+#wrap {
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+} 
+
+#deadimg {
+    display: none;
+    position: relative;
+    z-index: 1;
+}
+#liveimg {
+    position: relative;
+    z-index: 1;
+}
+.bar {
+    position: absolute;
+    left: 16%;
+    height: 9%;
+    z-index: 2;
+}
+#healthbar {
+    top: 74%;
+    width: 69%;
+}
+#healthbarbg {
+    display: block;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient( to right, #288b49, #20e965 );
+}
+#manabar {
+    position: absolute;
+    top: 84%;
+    width: 25%;
+    background: linear-gradient( to right, #39589b, #3272c2 );
+}
+#timer {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(160, 30, 35);
+    font-size: 6em;
+    font-family: 'Nanum Gothic', sans-serif;
+    text-shadow: 0.05em 0.05em 0.1em rgba(00, 00, 00, 9);
+    z-index: 2;
+}
